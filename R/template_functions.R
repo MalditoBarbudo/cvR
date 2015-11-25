@@ -46,7 +46,7 @@ cvR_format_pdf <- function(fig_width = 4,
 
   # get the latex template
   template <- system.file(
-    'inst/rmarkdown/templates/cv/resources/cvR.tex',
+    'rmarkdown/templates/cv/resources/cvR.tex',
     package = 'cvR'
   )
 
