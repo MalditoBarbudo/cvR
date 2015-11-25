@@ -17,6 +17,7 @@ bind_cv_sections <- function(rmdlist, name = 'cv.Rmd') {
   tmp <- lapply(sections, function(x){
     section <- readLines(x)
     yaml_loc <- grep("---", section)
+    # TO DO, check if yaml_loc is longer than 1 to remove the yaml preamble
     section <- section[-c(yaml_loc[1]:yaml_loc[2])]
     write(section, sep = '/n', file = name, append = TRUE)
   })
@@ -36,6 +37,7 @@ cvR_format_pdf <- function(fig_width = 4,
                            dev = 'pdf',
                            highlight = "default",
                            keep_tex = FALSE,
+                           number_sections = FALSE,
                            citation_package = c("natbib", "biblatex"),
                            includes = NULL,
                            md_extensions = NULL,
@@ -58,6 +60,7 @@ cvR_format_pdf <- function(fig_width = 4,
                                     highlight = highlight,
                                     template = template,
                                     keep_tex = keep_tex,
+                                    number_sections = number_sections,
                                     # citation_package = citation_package,
                                     latex_engine = "pdflatex",
                                     includes = includes,
