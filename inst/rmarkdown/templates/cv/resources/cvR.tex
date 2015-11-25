@@ -1,4 +1,4 @@
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{tufte-handout}
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
 % ams
 \usepackage{amssymb,amsmath}
@@ -48,16 +48,17 @@ $endif$
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+% No need of this section
 % title / author / date
-$if(title)$
-\title{$title$}
-$endif$
-$if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
-$endif$
-$if(date)$
-\date{$date$}
-$endif$
+% $if(title)$
+% \title{$title$}
+% $endif$
+% $if(author)$
+% \author{$for(author)$$author$$sep$ \and $endfor$}
+% $endif$
+% $if(date)$
+% \date{$date$}
+% $endif$
 
 $for(header-includes)$
 $header-includes$
@@ -65,15 +66,17 @@ $endfor$
 
 \begin{document}
 
-$if(title)$
-\maketitle
-$endif$
+% No need of title, at the moment
+% $if(title)$
+% \maketitle
+% $endif$
 
-$if(abstract)$
-\begin{abstract}
-\noindent $abstract$
-\end{abstract}
-$endif$
+% No need for abstract in a cv
+% $if(abstract)$
+% \begin{abstract}
+% \noindent $abstract$
+% \end{abstract}
+% $endif$
 
 $for(include-before)$
 $include-before$
