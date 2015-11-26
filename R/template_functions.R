@@ -4,7 +4,21 @@
 #
 # cvR_format_pdf: format function to create the output.
 
-bind_cv_sections <- function(sections,
+
+#' Bind Rmd files
+#'
+#' Function to bind rmd files containing CV sections
+#'
+#' @param sections List containing the names and rutes (as character) of
+#'   files to bind. Default to \code{list.files(".", ".Rmd")}.
+#'
+#' @param name Name and rute of the returned file. Default to
+#'   \code{paste(Sys.Date(), '_CV.Rmd', sep = '')}
+#'
+#' @return A file resulting of the bind of the selected Rmd files
+#'
+#' @export
+bind_cv_sections <- function(sections = list.files(".", ".Rmd"),
                              name = paste(Sys.Date(), '_CV.Rmd', sep = '')) {
   # Para cada uno de los archivos en la lista (secciones)
   # saco el texto, localizo el yaml, lo elimino y escribo
@@ -21,7 +35,34 @@ bind_cv_sections <- function(sections,
 
 #' cvR format (PDF)
 #'
-#' Template for creating a CV in R and Rmarkdown
+#' Template for creating a CV in PDF format from Rmd file,
+#'   adapted from \code{\link[rmarkdown]{tufte_handout}}
+#'
+#' @param fig_width Default width (in inches) for figures.
+#'
+#' @param fig_height Default height (in inches) for figures.
+#'
+#' @param fig_crop \code{TRUE} to automatically apply the \code{pdfcrop} utility
+#'   (if available) to pdf figures.
+#'
+#' @param dev Graphics device to use for figure output (defaults to pdf).
+#'
+#' @param highlight Syntax highlighting style. Default to "pygments", see
+#'   \code{\link[rmarkdown]{pdf_document}} for supported styles. Pass \code{NULL}
+#'   to prevent syntax hightlighting.
+#'
+#' @param keep_tex Keep the intermediate tex file used in the conversion to PDF.
+#'
+#' @param number_sections \code{TRUE} to number sections headings.
+#'
+#' @param includes Named list of additional content to include within the
+#'   document (typically created using the includes function).
+#'
+#' @param md_extensions Markdown extensions to be added or removed from the
+#'   default definition or R Markdown. See the
+#'   \code{\link[rmarkdown]{rmarkdown_format}} for additional details.
+#'
+#' @param pandoc_args Additional command line options to pass to pandoc
 #'
 #' @inheritParams pdf_document
 #'
@@ -33,7 +74,6 @@ cvR_format_pdf <- function(fig_width = 4,
                            highlight = "default",
                            keep_tex = FALSE,
                            number_sections = FALSE,
-                           citation_package = c("natbib", "biblatex"),
                            includes = NULL,
                            md_extensions = NULL,
                            pandoc_args = NULL) {
