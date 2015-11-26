@@ -20,14 +20,21 @@
 #' @export
 bind_cv_sections <- function(sections = list.files(".", ".Rmd"),
                              name = paste(Sys.Date(), '_CV.Rmd', sep = '')) {
+  # creamos el archivo con el preámbulo presente en la plantilla Rmd.
+  yaml_preamble <- readLines(system.file('rmarkdown/templates/cv/skeleton/skeleton.Rmd',
+                                         package = 'cvR'))
+  write(yaml_preamble, sep = '/n', file = name, append = FALSE)
   # Para cada uno de los archivos en la lista (secciones)
   # saco el texto, localizo el yaml, lo elimino y escribo
   # la sección en el archivo anterior
   tmp <- lapply(sections, function(x){
     section <- readLines(x)
     yaml_loc <- grep("---", section)
-    # TO DO, check if yaml_loc is longer than 1 to remove the yaml preamble
-    section <- section[-c(yaml_loc[1]:yaml_loc[2])]
+    # check if yaml_loc is longer than 1 to remove the yaml preamble from
+    # files if any
+    if (length(yaml_loc) > 1) {
+      section <- section[-c(yaml_loc[1]:yaml_loc[2])]
+      }
     write(section, sep = '/n', file = name, append = TRUE)
   })
   print(paste(name, ' file created in working directory'))
