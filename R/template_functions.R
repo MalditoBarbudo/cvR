@@ -4,13 +4,8 @@
 #
 # cvR_format_pdf: format function to create the output.
 
-bind_cv_sections <- function(rmdlist, name = 'cv.Rmd') {
-  # sacamos el primer documento, la portada
-  front <- readLines(rmdlist[[1]])
-  # creamos el archivo con la portada
-  write(front, sep = '/n', file = name)
-  # quitamos la portada de la lista
-  sections <- rmdlist[-1]
+bind_cv_sections <- function(sections,
+                             name = paste(Sys.Date(), '_CV.Rmd', sep = '')) {
   # Para cada uno de los archivos en la lista (secciones)
   # saco el texto, localizo el yaml, lo elimino y escribo
   # la sección en el archivo anterior
