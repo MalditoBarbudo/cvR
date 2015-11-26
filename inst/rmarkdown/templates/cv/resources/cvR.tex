@@ -1,7 +1,7 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
 % margins
-\usepackage[top=3cm, bottom=3cm, left=3.5cm, right=2cm]{geometry}
+\usepackage[top=3cm, bottom=3cm, left=4cm, right=2.5cm]{geometry}
 
 % ams
 \usepackage{amssymb,amsmath}
@@ -85,7 +85,7 @@ $endif$
 \sffamily\bfseries\filleft}
 {\thesubsection}{.5em}{\color{sectiongray}}
 \titlespacing*{\subsection}
-{2.2cm}{*2.2}{0.5cm}
+{2.5cm}{*2.2}{0.5cm}
 
 % number sections
 $if(numbersections)$
@@ -114,19 +114,19 @@ $endfor$
 \section{$author$}\label{author}
 
 $if(address)$
-\faMap \(~\) $address$\\
+\textcolor{sectiongray}{\faMap} \(~\) $address$\\
 $endif$
 $if(phone)$
-\faPhone \(~\) $phone$\\
+\textcolor{sectiongray}{\faPhone} \(~\) $phone$\\
 $endif$
 $if(email)$
-\faEnvelope \(~\) $email$\\
+\textcolor{sectiongray}{\faEnvelope} \(~\) $email$\\
 $endif$
 $if(github)$
-\faGithub \(~\) $github$\\
+\textcolor{sectiongray}{\faGithub} \(~\) $github$\\
 $endif$
 $for(www)$
-\faGlobe \(~\) $www$\\
+\textcolor{sectiongray}{\faGlobe} \(~\) $www$\\
 $endfor$
 
 
