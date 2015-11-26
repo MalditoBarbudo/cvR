@@ -9,6 +9,10 @@
 % utf8 encoding
 \usepackage[utf8]{inputenc}
 
+% font selection
+\usepackage[T1]{fontenc}
+\usepackage[default]{raleway}
+
 % graphix
 \usepackage{graphicx}
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
@@ -51,30 +55,18 @@ $endif$
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% section formatting
+% section formatting with color and titlesec package
+\usepackage{color}
 \usepackage{titlesec}
 
-% \titleformat{\subsection}[leftmargin]
-% {\normalfont\scshape}
-% {\thesubsection.}{1.5em}
-% {
-%     \rule{\textwidth}{1pt}
-%     \vspace{1ex}
-%     \centering
-% }
-% [
-%     \vspace{-0.5ex}%
-%     \rule{\textwidth}{0.3pt}
-% ]
-%
-% \titlespacing{\subsection}{0pc}{1.5ex plus .1ex minus .2ex}{1pc}
+\definecolor{mygray}{gray}{0.7}
 
 \titleformat{\subsection}[leftmargin]
 {\normalfont\vspace{12pt}
 \titlerule*[.4em]{\bfseries.}%
 \vspace{6pt}%
 \sffamily\bfseries\filleft}
-{\thesubsection}{.5em}{}
+{\thesubsection}{.5em}{\color{mygray}}
 \titlespacing*{\subsection}
 {2.2cm}{*2.2}{0.5cm}
 
