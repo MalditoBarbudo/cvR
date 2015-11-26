@@ -15,14 +15,22 @@
 #' @param name Name and rute of the returned file. Default to
 #'   \code{paste(Sys.Date(), '_CV.Rmd', sep = '')}
 #'
+#' @param yaml Name and rute to file containing yaml preamble. Default to
+#'   \code{skeleton.Rmd} in the package files
+#'
 #' @return A file resulting of the bind of the selected Rmd files
 #'
 #' @export
 bind_cv_sections <- function(sections = list.files(".", ".Rmd"),
-                             name = paste(Sys.Date(), '_CV.Rmd', sep = '')) {
+                             name = paste(Sys.Date(), '_CV.Rmd', sep = ''),
+                             yaml = system.file('rmarkdown/templates/cv/skeleton/skeleton.Rmd',
+                                                package = 'cvR')) {
+  # check if file exist and exit with error
+  if (file.exists(name)) {
+    stop(paste(name, 'file exist, please change CV name.'))
+  }
   # creamos el archivo con el preámbulo presente en la plantilla Rmd.
-  yaml_preamble <- readLines(system.file('rmarkdown/templates/cv/skeleton/skeleton.Rmd',
-                                         package = 'cvR'))
+  yaml_preamble <- readLines(yaml)
   write(yaml_preamble, sep = '/n', file = name, append = FALSE)
   # Para cada uno de los archivos en la lista (secciones)
   # saco el texto, localizo el yaml, lo elimino y escribo

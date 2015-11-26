@@ -5,7 +5,9 @@
 \title{Bind Rmd files}
 \usage{
 bind_cv_sections(sections = list.files(".", ".Rmd"),
-  name = paste(Sys.Date(), "_CV.Rmd", sep = ""))
+  name = paste(Sys.Date(), "_CV.Rmd", sep = ""),
+  yaml = system.file("rmarkdown/templates/cv/skeleton/skeleton.Rmd", package =
+  "cvR"))
 }
 \arguments{
 \item{sections}{List containing the names and rutes (as character) of
@@ -13,6 +15,9 @@ files to bind. Default to \code{list.files(".", ".Rmd")}.}
 
 \item{name}{Name and rute of the returned file. Default to
 \code{paste(Sys.Date(), '_CV.Rmd', sep = '')}}
+
+\item{yaml}{Name and rute to file containing yaml preamble. Default to
+\code{skeleton.Rmd} in the package files}
 }
 \value{
 A file resulting of the bind of the selected Rmd files
