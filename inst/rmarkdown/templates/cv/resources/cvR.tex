@@ -6,6 +6,9 @@
 % ams
 \usepackage{amssymb,amsmath}
 
+% fontawesome to phone symbol and more
+\usepackage{fontawesome}
+
 % utf8 encoding
 \usepackage[utf8]{inputenc}
 
@@ -22,6 +25,11 @@ $endif$
 % booktabs
 \usepackage{booktabs}
 
+% color
+\usepackage{color}
+\definecolor{sectiongray}{RGB}{108,122,137}
+\definecolor{linkscolor}{RGB}{92,151,191}
+
 % url
 \usepackage{url}
 % same font for urls links
@@ -29,6 +37,8 @@ $endif$
 
 % hyperref
 \usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks = true,
+            urlcolor = linkscolor}
 
 % units.
 \usepackage{units}
@@ -60,15 +70,12 @@ $endif$
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % section and subsections formatting with color and titlesec package
-\usepackage{color}
-\definecolor{mygray}{gray}{0.3}
 \usepackage{titlesec}
 
 % section
-\titleformat{\section}[frame]
-{\Large\vspace{12pt}\bfseries\filright}
+\titleformat{\section}[block]
+{\Large\vspace{12pt}\bfseries}
 {\thesection}{.2em}{}
-
 
 % subsection
 \titleformat{\subsection}[leftmargin]
@@ -76,7 +83,7 @@ $endif$
 \titlerule*[.4em]{\bfseries.}%
 \vspace{6pt}%
 \sffamily\bfseries\filleft}
-{\thesubsection}{.5em}{\color{mygray}}
+{\thesubsection}{.5em}{\color{sectiongray}}
 \titlespacing*{\subsection}
 {2.2cm}{*2.2}{0.5cm}
 
