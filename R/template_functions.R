@@ -25,6 +25,8 @@ bind_cv_sections <- function(sections = list.files(".", ".Rmd"),
                              name = paste(Sys.Date(), '_CV.Rmd', sep = ''),
                              yaml = system.file('rmarkdown/templates/cv/skeleton/skeleton.Rmd',
                                                 package = 'cvR')) {
+  # force evaluation of sections to avoid accidental replication of data
+  force(sections)
   # check if file exist and exit with error
   if (file.exists(name)) {
     stop(paste(name, 'file exist, please change CV name.'))
