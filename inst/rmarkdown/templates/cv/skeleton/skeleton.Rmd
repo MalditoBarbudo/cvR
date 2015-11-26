@@ -5,5 +5,12 @@ output:
     keep_tex: FALSE
     number_sections: FALSE
 font: raleway
+author: Author
+address: Address, with zip and country
+phone: 0000000000
+email: your@email.com
+www: ["https://your_web_1",
+      "https://your_web_2"]
+github: https://github.com/your_github
 ---
 

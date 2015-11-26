@@ -94,8 +94,6 @@ $else$
 \setcounter{secnumdepth}{0}
 $endif$
 
-% No need of this section
-% title / author / date
 % $if(title)$
 % \title{$title$}
 % $endif$
@@ -111,6 +109,27 @@ $header-includes$
 $endfor$
 
 \begin{document}
+
+% / author / date / personal data
+\section{$author$}\label{author}
+
+$if(address)$
+\faMap \(~\) $address$\\
+$endif$
+$if(phone)$
+\faPhone \(~\) $phone$\\
+$endif$
+$if(email)$
+\faEnvelope \(~\) $email$\\
+$endif$
+$if(github)$
+\faGithub \(~\) $github$\\
+$endif$
+$for(www)$
+\faGlobe \(~\) $www$\\
+$endfor$
+
+
 
 % No need of title, at the moment
 % $if(title)$
