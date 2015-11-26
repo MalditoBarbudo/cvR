@@ -1,6 +1,9 @@
 ---
 title: "Untitled"
 output:
-  cvR::cvR_format_pdf
+  cvR::cvR_format_pdf:
+    keep_tex: FALSE
+    number_sections: FALSE
+font: raleway
 ---
 
