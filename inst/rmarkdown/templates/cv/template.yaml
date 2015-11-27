@@ -1,4 +1,4 @@
 name: cvR (PDF)
 description: >
-  Template to create a CV in pdf from Rmd file/s
+  Template to create a CV in pdf from Rmd file
 create_dir: false

@@ -20,8 +20,8 @@ cvR_format_pdf(fig_width = 4, fig_height = 2.5, fig_crop = TRUE,
 \item{dev}{Graphics device to use for figure output (defaults to pdf).}
 
 \item{highlight}{Syntax highlighting style. Default to "pygments", see
-\code{\link[rmarkdown]{pdf_document}} for supported styles. Pass \code{NULL}
-to prevent syntax hightlighting.}
+\code{\link[rmarkdown]{pdf_document}} for supported styles.
+Pass \code{NULL} to prevent syntax hightlighting.}
 
 \item{keep_tex}{Keep the intermediate tex file used in the conversion to PDF.}
 
