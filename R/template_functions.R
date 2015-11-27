@@ -65,8 +65,8 @@ bind_cv_sections <- function(sections = list.files(".", ".Rmd"),
 #' @param dev Graphics device to use for figure output (defaults to pdf).
 #'
 #' @param highlight Syntax highlighting style. Default to "pygments", see
-#'   \code{\link[rmarkdown]{pdf_document}} for supported styles. Pass \code{NULL}
-#'   to prevent syntax hightlighting.
+#'   \code{\link[rmarkdown]{pdf_document}} for supported styles.
+#'   Pass \code{NULL} to prevent syntax hightlighting.
 #'
 #' @param keep_tex Keep the intermediate tex file used in the conversion to PDF.
 #'
@@ -80,8 +80,6 @@ bind_cv_sections <- function(sections = list.files(".", ".Rmd"),
 #'   \code{\link[rmarkdown]{rmarkdown_format}} for additional details.
 #'
 #' @param pandoc_args Additional command line options to pass to pandoc
-#'
-#' @inheritParams pdf_document
 #'
 #' @export
 cvR_format_pdf <- function(fig_width = 4,
