@@ -2,9 +2,16 @@ Package: cvR
 Type: Package
 Title: Package Providing a Template for CV (Single File and Modular)
 Version: 0.0.1
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Authors@R: c(
+  person("Víctor", "Granda", role = c("aut", "cre"),
+  email = "victorgrandagarcia@gmail.com")
+  )
+Description: Provides a template to create a CV in PDF from R markdown
+  documents.
+Imports:
+  rmarkdown
+License: GPL
+URL: https://github.com/MalditoBarbudo/cvR
+BugReports: https://github.com/MalditoBarbudo/cvR/issues
 LazyData: TRUE
 RoxygenNote: 5.0.1
