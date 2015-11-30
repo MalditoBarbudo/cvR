@@ -33,7 +33,7 @@ bind_cv_sections <- function(sections = list.files(".", ".Rmd"),
   # force evaluation of sections to avoid accidental replication of data
   force(sections)
   # check if file exist and exit with error
-  if (replace) {
+  if (!replace) {
     if (file.exists(name)) {
       stop(paste(name, 'file exist, please change CV name.'))
     }
