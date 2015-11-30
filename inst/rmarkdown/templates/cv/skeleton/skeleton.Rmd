@@ -5,7 +5,9 @@ output:
     keep_tex: FALSE
     number_sections: FALSE
 font: raleway
+date: "`r Sys.Date()`"
 author: Author
+courtesy: 
 address: Address, with zip and country
 phone: 0000000000
 email: your@email.com

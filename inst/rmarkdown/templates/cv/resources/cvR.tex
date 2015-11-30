@@ -1,7 +1,7 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
 % margins
-\usepackage[top=3cm, bottom=3cm, left=4cm, right=3.5cm]{geometry}
+\usepackage[top=4cm, bottom=4cm, left=4cm, right=4cm]{geometry}
 
 % ams
 \usepackage{amssymb,amsmath}
@@ -13,6 +13,7 @@
 \usepackage[utf8]{inputenc}
 
 % font selection (see http://www.tug.dk/FontCatalogue/ for available fonts)
+% some fonts would need extra tweaking
 $if(font)$
 \usepackage[T1]{fontenc}
 \usepackage[default]{$font$}
@@ -70,8 +71,10 @@ $endif$
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % indentation
-\usepackage{parskip}
-\setlength{\parskip}{0.25cm plus4mm minus3mm}
+%\usepackage{parskip}
+
+\setlength{\parindent}{0pt}
+
 
 % section and subsections formatting with color and titlesec package
 \usepackage{titlesec}
@@ -84,10 +87,11 @@ $endif$
 % subsection
 \titleformat{\subsection}[leftmargin]
 {\normalfont\vspace{12pt}
-\titlerule*[.4em]{\bfseries.}%
+\titleline{\color{sectiongray}\rule{5cm}{1.5pt}}
 \vspace{6pt}%
 \sffamily\bfseries\filleft}
 {\thesubsection}{.5em}{\color{sectiongray}}
+
 \titlespacing*{\subsection}
 {2.5cm}{*2.2}{0.5cm}
 
@@ -108,15 +112,46 @@ $endif$
 % \date{$date$}
 % $endif$
 
+% header and foot with fancyhdr
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrule}{{\color{sectiongray}%
+\hrule width 1.2\headwidth height \headrulewidth \vskip-\headrulewidth}}
+\renewcommand{\footrule}{{\color{sectiongray}%
+\vskip-\footruleskip\vskip-\footrulewidth
+\hrule width 1.2\headwidth height \footrulewidth\vskip\footruleskip}}
+
+\fancyhf{}
+\fancyhfoffset[l]{-8.5cm}
+\fancyhfoffset[r]{0.7cm}
+\rhead{\small $if(author)$\textcolor{sectiongray}{$author$, }$endif$%
+       $if(courtesy)$\textcolor{sectiongray}{$courtesy$}$endif$\\%
+       $if(date)$\textcolor{sectiongray}{$date$}$endif$}
+\rfoot{\small \textcolor{sectiongray}{\thepage}}
+
+
+
+% header includes
 $for(header-includes)$
 $header-includes$
 $endfor$
 
 \begin{document}
 
-% / author / date / personal data
-\section{$author$}\label{author}
+% no header in first page
+\thispagestyle{empty}
 
+% / author / date / personal data
+\section{$author$, $courtesy$}\label{author}
+
+$if(date)$
+\textcolor{sectiongray}{\faCalendar} \(~\) $date$\\
+$endif$
 $if(address)$
 \textcolor{sectiongray}{\faMap} \(~\) $address$\\
 $endif$
