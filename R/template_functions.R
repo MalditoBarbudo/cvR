@@ -47,7 +47,7 @@ bind_cv_sections <- function(sections = list.files(".", ".Rmd"),
       }
     write(section, sep = '/n', file = name, append = TRUE)
   })
-  print(paste(name, ' file created in working directory'))
+  message(paste(name, ' file created'))
 }
 
 #' cvR format (PDF)
