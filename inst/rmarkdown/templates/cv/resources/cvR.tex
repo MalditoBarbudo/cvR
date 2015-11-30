@@ -135,7 +135,7 @@ $endfor$
 \thispagestyle{empty}
 
 % / author / date / personal data
-\section{$author$, $courtesy$}\label{author}
+\section{$author$$if(courtesy)$, $courtesy$$endif$}\label{author}
 
 $if(date)$
 \textcolor{sectiongray}{\faCalendar} \(~\) $date$\\
