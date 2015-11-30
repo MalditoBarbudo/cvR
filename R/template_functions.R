@@ -18,18 +18,25 @@
 #' @param yaml Name and rute to file containing yaml preamble. Default to
 #'   \code{skeleton.Rmd} in the package files
 #'
+#' @param replace If FALSE, function return a warning if output document
+#'   already exists, asking for a change in the name of the output. If TRUE,
+#'   no check is done and output file is overwritten
+#'
 #' @return A file resulting of the bind of the selected Rmd files
 #'
 #' @export
 bind_cv_sections <- function(sections = list.files(".", ".Rmd"),
                              name = paste(Sys.Date(), '_CV.Rmd', sep = ''),
                              yaml = system.file('rmarkdown/templates/cv/skeleton/skeleton.Rmd',
-                                                package = 'cvR')) {
+                                                package = 'cvR'),
+                             replace = FALSE) {
   # force evaluation of sections to avoid accidental replication of data
   force(sections)
   # check if file exist and exit with error
-  if (file.exists(name)) {
-    stop(paste(name, 'file exist, please change CV name.'))
+  if (replace) {
+    if (file.exists(name)) {
+      stop(paste(name, 'file exist, please change CV name.'))
+    }
   }
   # creamos el archivo con el preámbulo presente en la plantilla Rmd.
   yaml_preamble <- readLines(yaml)
@@ -47,7 +54,13 @@ bind_cv_sections <- function(sections = list.files(".", ".Rmd"),
       }
     write(section, sep = '/n', file = name, append = TRUE)
   })
-  message(paste(name, ' file created'))
+
+  if (replace) {
+    message(paste(name, ' file overwritten'))
+  } else {
+    message(paste(name, ' file created'))
+  }
+
 }
 
 #' cvR format (PDF)
