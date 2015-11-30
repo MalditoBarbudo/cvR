@@ -71,8 +71,6 @@ $endif$
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % indentation
-%\usepackage{parskip}
-
 \setlength{\parindent}{0pt}
 
 
@@ -92,31 +90,21 @@ $endif$
 \sffamily\bfseries\filleft}
 {\thesubsection}{.5em}{\color{sectiongray}}
 
+% subsection spacing
 \titlespacing*{\subsection}
 {2.5cm}{*2.2}{0.5cm}
 
-% number sections
+% numbered sections
 $if(numbersections)$
 \setcounter{secnumdepth}{5}
 $else$
 \setcounter{secnumdepth}{0}
 $endif$
 
-% $if(title)$
-% \title{$title$}
-% $endif$
-% $if(author)$
-% \author{$for(author)$$author$$sep$ \and $endfor$}
-% $endif$
-% $if(date)$
-% \date{$date$}
-% $endif$
-
 % header and foot with fancyhdr
 \usepackage{fancyhdr}
 
 \pagestyle{fancy}
-
 
 \renewcommand{\headrulewidth}{1pt}
 \renewcommand{\footrulewidth}{1pt}
@@ -167,20 +155,6 @@ $endif$
 $for(www)$
 \textcolor{sectiongray}{\faGlobe} \(~\) $www$\\
 $endfor$
-
-
-
-% No need of title, at the moment
-% $if(title)$
-% \maketitle
-% $endif$
-
-% No need for abstract in a cv
-% $if(abstract)$
-% \begin{abstract}
-% \noindent $abstract$
-% \end{abstract}
-% $endif$
 
 $for(include-before)$
 $include-before$
