@@ -80,7 +80,7 @@ $endif$
 % section
 \titleformat{\section}[block]
 {\Large\vspace{12pt}\bfseries}
-{\thesection}{.2em}{}
+{}{.2em}{}
 
 % subsection
 \titleformat{\subsection}[leftmargin]
@@ -88,18 +88,18 @@ $endif$
 \titleline{\color{sectiongray}\rule{5cm}{1.5pt}}
 \vspace{6pt}%
 \sffamily\bfseries\filleft}
-{\thesubsection}{.5em}{\color{sectiongray}}
+{}{.5em}{\color{sectiongray}}
 
 % subsection spacing
 \titlespacing*{\subsection}
 {2.5cm}{*2.2}{0.5cm}
 
 % numbered sections
-$if(numbersections)$
-\setcounter{secnumdepth}{5}
-$else$
-\setcounter{secnumdepth}{0}
-$endif$
+% $if(numbersections)$
+% \setcounter{secnumdepth}{5}
+% $else$
+% \setcounter{secnumdepth}{0}
+% $endif$
 
 % header and foot with fancyhdr
 \usepackage{fancyhdr}

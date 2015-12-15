@@ -38,6 +38,8 @@ bind_cv_sections <- function(sections = list.files(".", ".Rmd"),
       stop(paste(name, 'file exist, please change CV name.'))
     }
   }
+
+  replacing <- file.exists(name)
   # creamos el archivo con el preámbulo presente en la plantilla Rmd.
   yaml_preamble <- readLines(yaml)
   write(yaml_preamble, sep = '/n', file = name, append = FALSE)
@@ -55,7 +57,7 @@ bind_cv_sections <- function(sections = list.files(".", ".Rmd"),
     write(section, sep = '/n', file = name, append = TRUE)
   })
 
-  if (replace) {
+  if (replacing) {
     message(paste(name, ' file overwritten'))
   } else {
     message(paste(name, ' file created'))
